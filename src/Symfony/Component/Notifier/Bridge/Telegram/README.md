@@ -14,6 +14,27 @@ where:
  - `TOKEN` is your Telegram token
  - `CHAT_ID` is your Telegram chat id
 
+Interacting with local API server instead of official Telegram API
+------------------------------------------------------------------
+
+If such a case is needed, you can replace the `default` keyword in the DSN
+with the desired domain/IP address of your local API server. You may also want to
+disable the bridge's default behavior of using `https` protocol as local API servers
+can only accept `http` traffic.
+
+Example:
+```
+TELEGRAM_DSN=telegram://TOKEN@localhost:5001?channel=CHAT_ID&disable_https=1
+```
+
+Caution: Disabling the use of the `https` protocol can pose a security risk.
+You should only do this if your local API server is hosted somehow internally
+and the traffic will remain within a secure environment.
+
+Otherwise, you may want to implement a TLS-termination proxy in front of
+your server for handling the encryption and decryption of the traffic,
+So you can continue using it normally over `https` protocol.
+
 Adding Interactions to a Message
 --------------------------------
 

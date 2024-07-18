@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+7.3
+---
+
+ * Add a DSN option/flag `disableHttps` to allow the disabling of bridge's default behavior of using `https` protocol
+
 6.4
 ---
 
